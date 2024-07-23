@@ -1,9 +1,10 @@
 import React from 'react'
+import HeroComponent from './components/HeroComponent/HeroComponent'
 
 const App = () => {
     return (
         <div className="flex">
-           Tru Drive
+            <HeroComponent />
         </div>
     )
 }
