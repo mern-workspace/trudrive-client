@@ -9,14 +9,17 @@ import BinComponent from '../BinComponent/BinComponent'
 import StorageComponent from '../StorageComponent/StorageComponent'
 import DocumentViewer from '../DocumentViewer/DocumentViewer'
 import SidebarComponent from '../SidebarComponent/SidebarComponent'
+import HeaderComponent from '../HeaderComponent/HeaderComponent'
 
 const HeroComponent = () => {
 
     return (
         <Router>
             <SidebarComponent />
-            <div>
-                <div className="ml-60">
+
+            <div className="ml-60 py-4 w-full">
+                <HeaderComponent />
+                <div>
                     <Routes>
                         <Route exact path="/" element={<DashboardComponent />} />
                         <Route path="/drive" element={<DriveComponent />} />
