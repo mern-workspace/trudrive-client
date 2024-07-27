@@ -13,7 +13,7 @@ const FileComponent = ({ file }) => {
 
     return (
         <div 
-            className="bg-[#f0f4f9] p-4 w-full rounded-lg hover:bg-[#e7e8eb] transition-all ease-in"
+            className="bg-[#f0f4f9] p-4 w-full rounded-lg hover:bg-[#e7e8eb] transition-all ease-in cursor-pointer"
             onClick={handleFileOpen}
         >
             <div className="flex justify-between items-center">
