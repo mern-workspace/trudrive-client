@@ -24,7 +24,7 @@ const HeroComponent = () => {
         <>
             {shouldShowHeaderSidebar && <SidebarComponent />}
 
-            <div className={shouldShowHeaderSidebar ? "ml-60 py-4 w-full" : "w-full"}>
+            <div className={shouldShowHeaderSidebar ? "ml-60 mt-48 py-4 w-full" : "w-full"}>
                 {shouldShowHeaderSidebar && <HeaderComponent />}
                 <div>
                     <Routes>

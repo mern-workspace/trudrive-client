@@ -47,8 +47,8 @@ const HeaderComponent = () => {
     }, [])
 
     return (
-        <div className="my-4 py-2 sticky top-0 left-0 bg-white">
-            <div className="relative pl-1 2xl:max-w-[60%] xl:max-w-[60%] lg:max-w-[70%] md:max-w-[80%] sm:max-w-[80%]">
+        <div className="py-2 fixed w-full ml-60 top-0 left-0 bg-white">
+            <div className="relative pl-1 2xl:max-w-[60%] xl:max-w-[60%] lg:max-w-[70%] md:max-w-[60%] sm:max-w-[60%]">
                 <input
                     type="text"
                     placeholder="Search..."

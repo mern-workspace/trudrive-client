@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import FileComponent from '../FileComponent/FileComponent'
 import LoadingComponent from '../LoadingComponent/LoadingComponent'
-import DirectoryComponent from '../DiirectoryComponent/DirectoryComponent'
+import DirectoryComponent from '../DirectoryComponent/DirectoryComponent'
 
 const DashboardComponent = () => {
     const [directories, setDirectories] = useState([])
@@ -86,7 +86,6 @@ const DashboardComponent = () => {
                         )
                     )}
                 </React.Fragment>
-
             )}
         </div>
     )
