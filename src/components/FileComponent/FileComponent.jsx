@@ -16,16 +16,20 @@ const FileComponent = ({ file }) => {
             className="bg-[#f0f4f9] p-4 w-full rounded-lg hover:bg-[#e7e8eb] transition-all ease-in cursor-pointer"
             onClick={handleFileOpen}
         >
-            <div className="flex justify-between items-center">
-                <div className="flex items-center">
+            <div className="flex justify-between items-center w-full">
+                <div className="flex items-center w-full">
                     <img 
                         src={docIcon} 
                         alt="Document Icon" 
                         className="w-4 h-4" 
                     />
-                    <h5 className="ml-4">{file.filename}</h5>
+
+                    <h5 className="px-4 w-full overflow-hidden whitespace-nowrap text-ellipsis">{file.originalname}</h5>
+                
+                    <div className="p-2 rounded-full cursor-pointer hover:bg-[#c4c5c8]">
+                        <span><HiOutlineDotsVertical /></span>
+                    </div>
                 </div>
-                <HiOutlineDotsVertical />
             </div>
 
             <img 

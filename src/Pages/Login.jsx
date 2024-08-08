@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import scattered_files from '../../public/img/login-hero-image.jpg'
+import scattered_files from '/img/login-hero-image.jpg'
 import axios from 'axios'
 
 function LoginComponent() {

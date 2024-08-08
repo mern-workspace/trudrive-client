@@ -46,6 +46,7 @@ const DashboardComponent = () => {
                 if (error.response.status === 401) {
                     
                 }
+                console.log(error)
             })
             .finally(() => {
                 setIsLoading(false)
@@ -65,6 +66,7 @@ const DashboardComponent = () => {
                             <div className="mt-6">
                                 <h4 className='text-md'>Folders</h4>
                             </div>
+
                             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-3 transition-all duration-300 ease-in-out mt-5">
                             {directories.map((directory) => (
                                 <DirectoryComponent key={directory._id} directory={directory} />
@@ -73,11 +75,18 @@ const DashboardComponent = () => {
                         </React.Fragment>
                     )}
                     {files && files.length > 0 ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-3 transition-all duration-300 ease-in-out mt-5">
-                            {files.map((file) => (
-                                <FileComponent key={file.id} file={file} />
-                            ))}
-                        </div>
+                        <React.Fragment>
+                            <div className="mt-8">
+                                <h4 className='text-md'>Files</h4>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-3 transition-all duration-300 ease-in-out mt-5">
+                                {files.map((file) => (
+                                    <FileComponent key={file.id} file={file} />
+                                ))}
+                            </div>
+                        </React.Fragment>
+                        
                     ) : (
                         !directories && (
                             <div className="text-center mt-10">
