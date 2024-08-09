@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import FileComponent from '../FileComponent/FileComponent'
-import LoadingComponent from '../LoadingComponent/LoadingComponent'
-import DirectoryComponent from '../DirectoryComponent/DirectoryComponent'
+import FileComponent from '../../components/FileComponent/FileComponent'
+import LoadingComponent from '../../components/LoadingComponent/LoadingComponent'
+import DirectoryComponent from '../../components/DirectoryComponent/DirectoryComponent'
 
 const DashboardComponent = () => {
     const [directories, setDirectories] = useState([])
