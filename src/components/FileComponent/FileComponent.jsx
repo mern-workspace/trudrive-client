@@ -1,9 +1,9 @@
 import React from 'react'
 import { HiOutlineDotsVertical } from 'react-icons/hi'
 
-import docIcon from '/img/sheet-icon.jpeg'
-import docPreview from '/img/preview1.png'
-import profile from '/img/profile.png'
+import docIcon from '../../assets/img/sheet-icon.jpeg'
+import docPreview from '../../assets/img/preview1.png'
+import profile from '../../assets/img/profile.png'
 
 const FileComponent = ({ file }) => {
 

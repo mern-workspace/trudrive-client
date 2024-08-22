@@ -9,53 +9,76 @@ import { FaClock, FaPlus } from 'react-icons/fa6'
 import { MdOutlineCreateNewFolder } from "react-icons/md"
 import { MdOutlineUploadFile } from "react-icons/md"
 import { MdOutlineDriveFolderUpload } from "react-icons/md"
-import ModalComponent from '../ModalComponent/ModalComponent'
+import useModalContext from '../../hooks/useModalContext'
 import axios from 'axios'
 
 const SidebarComponent = () => {
     const [activeIcon, setActiveIcon] = useState('home')
     const [folderName, setFolderName] = useState('') 
     const [newDropdownOpen, setNewDropdownOpen] = useState(false)
-    const [isOpen, setModalOpen] = useState(false)
     const newDropdownRef = useRef(null)
 
+    const { isModalOpen, setIsModalOpen, inputValue, setInputValue, setModalTitle, setInputPlaceholderValue, setOnCloseModal, setOnModalSubmit, setSuccessButtonValue } = useModalContext()
 
     const handleSetActiveIcon = (icon) => {
         setActiveIcon(icon)
     }
 
     const handleOpenModal = () => {
-        setModalOpen(true)
+
+        // sets value for modal 
+        setIsModalOpen(true)
+        setModalTitle('New Folder')
+        setInputPlaceholderValue('Enter folder name')
+        setSuccessButtonValue('Create')
+        setOnCloseModal(() => handleCloseModal)
     }
 
     const handleCloseModal = () => {
-        setModalOpen(false);
-    }
-
-    const handleNewFolderSubmit = () => {
-        
-        axios
-            .post(
-                'http://localhost:3500/api/v1/folders/home', 
-                {
-                    directoryName: folderName
-                },
-                {
-                    withCredentials: true,
-                }
-            )
-            .then((response) => {
-                if (response.status === 201) {
-                    location.reload()
-                }
-            })
-            .catch((error) => {
-                console.log(error.response)
-            }) 
+        // reset the value for modal
+        setIsModalOpen(false);
+        setModalTitle('');
+        setInputPlaceholderValue('');
+        setSuccessButtonValue('');
+        setOnModalSubmit(() => {});
+        setOnCloseModal(() => {});
+        setInputValue('');
     }
 
     useEffect(() => {
-        if(isOpen) {
+        console.log("SidebarComponent inputValue changed:", inputValue);
+        setFolderName(inputValue);  // Optional: If you want to synchronize the folderName with inputValue
+    }, [inputValue]);
+
+    // const handleNewFolderSubmit = () => {
+    //     console.log("sdfh")
+    //     console.log(inputValue)
+    //     console.log(folderName)
+        
+    //     // axios
+    //     //     .post(
+    //     //         'http://localhost:3500/api/v1/folders/home', 
+    //     //         {
+    //     //             directoryName: inputValue
+    //     //         },
+    //     //         {
+    //     //             withCredentials: true,
+    //     //         }
+    //     //     )
+    //     //     .then((response) => {
+    //     //         if (response.status === 201) {
+    //     //             location.reload()
+    //     //         }
+    //     //     })
+    //     //     .catch((error) => {
+    //     //         console.log(error.response)
+    //     //     }) 
+    //     // handleCloseModal()
+    // }
+
+
+    useEffect(() => {
+        if(isModalOpen) {
             setNewDropdownOpen(false)
         }
 
@@ -70,7 +93,7 @@ const SidebarComponent = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
 
-    }, [isOpen]);
+    }, [isModalOpen]);
 
 
     const linkClass = 'block h-8 py-2 px-4 rounded-full transition duration-300 flex items-center'
@@ -128,7 +151,7 @@ const SidebarComponent = () => {
                         )}
                     </div>
 
-                    <ModalComponent 
+                    {/* <ModalComponent 
                         isOpen={isOpen} 
                         onClose={handleCloseModal} 
                         onSubmit={handleNewFolderSubmit}
@@ -137,7 +160,7 @@ const SidebarComponent = () => {
                         title="New Folder" 
                         placeholder="United Folder" 
                         successButton="Create"
-                    />
+                    /> */}
 
                     <ul className="px-4">
                         <li>

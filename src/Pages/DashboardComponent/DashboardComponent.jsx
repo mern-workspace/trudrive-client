@@ -82,7 +82,7 @@ const DashboardComponent = () => {
 
                             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-3 transition-all duration-300 ease-in-out mt-5">
                                 {files.map((file) => (
-                                    <FileComponent key={file.id} file={file} />
+                                    <FileComponent key={file._id} file={file} />
                                 ))}
                             </div>
                         </React.Fragment>

@@ -12,6 +12,7 @@ import HeaderComponent from '../HeaderComponent/HeaderComponent'
 import Login from '../../Pages/LoginComponent/LoginComponent'
 import Signup from '../../Pages/SignupComponent/SignupComponent' 
 import DashboardComponent from '../../Pages/DashboardComponent/DashboardComponent'
+import ModalComponent from '../ModalComponent/ModalComponent'
 
 const HeroComponent = () => {
     const location = useLocation()
@@ -21,7 +22,7 @@ const HeroComponent = () => {
     const shouldShowHeaderSidebar = !noHeaderSidebarRoutes.includes(location.pathname)
 
     return (
-        <>
+        <React.Fragment>
             {shouldShowHeaderSidebar && <SidebarComponent />}
 
             <div className={shouldShowHeaderSidebar ? "ml-60 mt-48 py-4 w-full" : "w-full"}>
@@ -41,7 +42,9 @@ const HeroComponent = () => {
                     </Routes>
                 </div>
             </div>
-        </>
+
+            <ModalComponent />
+        </React.Fragment>
     )
 }
 
