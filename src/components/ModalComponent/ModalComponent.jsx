@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import useModalContext from '../../hooks/useModalContext'
+import useDataContext from '../../hooks/useDataContext'
 import axios from 'axios'
 
 const ModalComponent = () => {
 
     const { isModalOpen, modalTitle, inputValue, setInputValue, inputPlaceholderValue, onModalSubmit, onCloseModal, successButtonValue, setIsModalOpen, setModalTitle, setInputPlaceholderValue, setOnCloseModal, setOnModalSubmit, setSuccessButtonValue } = useModalContext()
+
+    const { currentDirectoryId } = useDataContext()
 
 
     const handleInputChange = (event) => {
@@ -21,7 +24,7 @@ const ModalComponent = () => {
         
         axios
             .post(
-                'http://localhost:3500/api/v1/folders/home', 
+                `http://localhost:3500/api/v1/folders/${currentDirectoryId}`, 
                 {
                     directoryName: inputValue
                 },

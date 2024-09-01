@@ -1,14 +1,17 @@
 import React from 'react'
 import HeroComponent from './components/HeroComponent/HeroComponent'
 import { ModalProvider } from './context/ModalContext'
+import { DataProvider } from './context/DataContext'
 
 const App = () => {
     return (
-        <ModalProvider>
-            <div className="flex">
-                <HeroComponent />
-            </div>
-        </ModalProvider>
+        <DataProvider>
+            <ModalProvider>
+                <div className="flex">
+                    <HeroComponent />
+                </div>
+            </ModalProvider>
+        </DataProvider>
     )
 }
 

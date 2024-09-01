@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom'
 import DriveComponent from '../DriveComponent/DriveComponent'
 import SharedWithMeComponent from '../../Pages/SharedWithMePageComponent/SharedWithMePageComponent'
 import RecentComponent from '../../Pages/RecentPageComponent/RecentPageComponent'
@@ -10,7 +10,7 @@ import DocumentViewer from '../DocumentViewer/DocumentViewer'
 import SidebarComponent from '../SidebarComponent/SidebarComponent'
 import HeaderComponent from '../HeaderComponent/HeaderComponent'
 import Login from '../../Pages/LoginComponent/LoginComponent'
-import Signup from '../../Pages/SignupComponent/SignupComponent' 
+import Signup from '../../Pages/SignupComponent/SignupComponent'
 import DashboardComponent from '../../Pages/DashboardComponent/DashboardComponent'
 import ModalComponent from '../ModalComponent/ModalComponent'
 
@@ -29,9 +29,13 @@ const HeroComponent = () => {
                 {shouldShowHeaderSidebar && <HeaderComponent />}
                 <div>
                     <Routes>
-                        <Route exact path="/" element={<DashboardComponent />} />
+                        {/* Default route redirects to home */}
+                        <Route path="/" element={<Navigate to="/folders/home" />} />
+                        {/* Dynamic route for directories */}
+                        <Route path="/folders/:directoryId" element={<DashboardComponent />} />
+                        {/* Other routes */}
                         <Route path="/login" element={<Login />} />
-                        <Route path="/signup" element={<Signup />} /> {/* Add your signup route */}
+                        <Route path="/signup" element={<Signup />} />
                         <Route path="/drive" element={<DriveComponent />} />
                         <Route path="/shared-with-me" element={<SharedWithMeComponent />} />
                         <Route path="/recent" element={<RecentComponent />} />

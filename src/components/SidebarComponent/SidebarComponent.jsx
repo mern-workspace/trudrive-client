@@ -50,33 +50,6 @@ const SidebarComponent = () => {
         setFolderName(inputValue);  // Optional: If you want to synchronize the folderName with inputValue
     }, [inputValue]);
 
-    // const handleNewFolderSubmit = () => {
-    //     console.log("sdfh")
-    //     console.log(inputValue)
-    //     console.log(folderName)
-        
-    //     // axios
-    //     //     .post(
-    //     //         'http://localhost:3500/api/v1/folders/home', 
-    //     //         {
-    //     //             directoryName: inputValue
-    //     //         },
-    //     //         {
-    //     //             withCredentials: true,
-    //     //         }
-    //     //     )
-    //     //     .then((response) => {
-    //     //         if (response.status === 201) {
-    //     //             location.reload()
-    //     //         }
-    //     //     })
-    //     //     .catch((error) => {
-    //     //         console.log(error.response)
-    //     //     }) 
-    //     // handleCloseModal()
-    // }
-
-
     useEffect(() => {
         if(isModalOpen) {
             setNewDropdownOpen(false)
